@@ -1,0 +1,11 @@
+./miPrincipal/modelo/Pedido.java
+./miPrincipal/modelo/Libro.java
+./miPrincipal/modelo/Producto.java
+./miPrincipal/modelo/Proveedor.java
+./miPrincipal/modelo/Libreria.java
+./miPrincipal/modelo/Usuario.java
+./miPrincipal/Principal.java
+./miPrincipal/iu/MenuOpciones.java
+./miPrincipal/iu/Menu.java
+./miPrincipal/servicio/ServicioDatos.java
+./miTest/AppTest.java
