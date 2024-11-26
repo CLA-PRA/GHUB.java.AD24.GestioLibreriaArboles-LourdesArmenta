@@ -15,26 +15,25 @@ import miPrincipal.servicio.ServicioDatos;
 import java.util.Scanner;
 
 public class Libreria{
-    ServicioDatos dataService;
-    LinkedList<Libro> listaLibros;
-    ArrayList<Libro> listaLibrosDisponibles;
-    Queue<Libro> colaLibros;
-    Stack<Libro> pilaLibrosEliminados;
-    Scanner scanner; 
-    private HashMap<String, Proveedor> proveedores;
-    private TreeSet<Usuario> usuarios; // Agregar TreeSet para usuarios
-    private HashMap<Usuario, Libro> prestamos; // Agregar HashMap para préstamos
+    //Declare variables de instancia que
+    //se utilizaran para gestionar diferentes
+    //aspectos de la libreria
+    /*
+     * dataService: Una instancia de la clase ServicioDatos que maneja las operaciones de datos.
+        listaLibros: Una lista enlazada (LinkedList) que contiene los libros de la librería.
+        listaLibrosDisponibles: Una lista (ArrayList) que contiene los libros disponibles para préstamo.
+        colaLibros: Una cola (Queue) que se utiliza para gestionar la reserva de libros.
+        pilaLibrosEliminados: Una pila (Stack) que almacena los libros eliminados, permitiendo deshacer eliminaciones.
+        scanner: Un objeto Scanner para leer la entrada del usuario.
+        proveedores: Un HashMap que asocia identificadores de proveedores (String) con instancias de la clase Proveedor.
+        usuarios: Un TreeSet que contiene instancias de la clase Usuario, asegurando que los usuarios estén ordenados y no se repitan.
+        prestamos: Un HashMap que asocia instancias de la clase Usuario con instancias de la clase Libro, gestionando los préstamos de libros a usuarios.
+     */
+  
 
     public Libreria(){
-        dataService = new ServicioDatos();
-        scanner = new Scanner(System.in);
-        listaLibros = new LinkedList<>();
-        listaLibrosDisponibles= new ArrayList<>();
-        colaLibros = new LinkedList<>();
-        pilaLibrosEliminados = new Stack<>();
-        proveedores = new HashMap<>();
-        usuarios = new TreeSet<>(); // Inicializar TreeSet
-        prestamos = new HashMap<>(); // Inicializar HashMap
+       //inicialice las variables de instancia que 
+       //se utilizaran para gestionar la libreria
 
     }
 

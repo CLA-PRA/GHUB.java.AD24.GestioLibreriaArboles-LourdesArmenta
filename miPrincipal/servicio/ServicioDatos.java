@@ -5,80 +5,106 @@ import miPrincipal.modelo.Libro;
 import miPrincipal.modelo.Usuario;
 import miPrincipal.modelo.Proveedor;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-import java.util.Stack;
-import java.util.TreeSet;
+//Este fragmento de código en la clase ServicioDatos 
+//importa varias clases de las colecciones de Java (java.util).
+// Estas clases se utilizan para gestionar diferentes estructuras de datos en la aplicación:
+/*
+ * ArrayList: Una lista que permite acceso rápido a elementos por índice.
+    HashMap: Un mapa que asocia claves con valores, permitiendo búsquedas rápidas.
+    LinkedList: Una lista enlazada que permite inserciones y eliminaciones rápidas.
+    List: Una interfaz que representa una lista de elementos.
+    Queue: Una interfaz que representa una cola de elementos, donde los elementos se procesan en orden FIFO (First In, First Out).
+    Stack: Una pila que permite acceso LIFO (Last In, First Out).
+    TreeSet: Un conjunto ordenado que no permite elementos duplicados y mantiene los elementos en orden natura
+ */
 
 public class ServicioDatos {
-    private List<Libro> listaLibros;
-    private Queue<Libro> colaLibros;
-    private Stack<Libro> pilaLibrosEliminados;
-    private ArrayList<Libro> listaLibrosDisponibles;
-    private HashMap<String, Proveedor> proveedores;
-    private TreeSet<Usuario> usuarios;
-    private HashMap<Libro, Usuario> prestamos;
+    //declara las variables de instancia que se
+    //utilizaran para gestionar diferentes aspectos de la aplicacion
+   /*
+    * listaLibros: Una lista (List<Libro>) que contiene los libros de la aplicación.
+    colaLibros: Una cola (Queue<Libro>) que se utiliza para gestionar la reserva de libros.
+    pilaLibrosEliminados: Una pila (Stack<Libro>) que almacena los libros eliminados, permitiendo deshacer eliminaciones.
+    listaLibrosDisponibles: Una lista (ArrayList<Libro>) que contiene los libros disponibles para préstamo.
+    proveedores: Un mapa (HashMap<String, Proveedor>) que asocia identificadores de proveedores (String) con instancias de la clase Proveedor.
+    usuarios: Un conjunto ordenado (TreeSet<Usuario>) que contiene instancias de la clase Usuario, asegurando que los usuarios estén ordenados y no se repitan.
+    prestamos: Un mapa (HashMap<Libro, Usuario>) que asocia instancias de la clase Libro con instancias de la clase Usuario, gestionando los préstamos de libros a usuarios.
+    */
 
     public ServicioDatos() {
-        listaLibros = new LinkedList<>();
-        colaLibros = new LinkedList<>();
-        pilaLibrosEliminados = new Stack<>();
-        listaLibrosDisponibles = new ArrayList<>();
-        proveedores = new HashMap<>();
-        usuarios = new TreeSet<>();
-        prestamos = new HashMap<>();
+        //inicialice las variables de instancia
     }
 
     // Métodos para la lista de libros
-    public boolean agregarLibro(Libro libro) {
-        listaLibros.add(libro);
+    /**
+     * Agrega un libro a la lista de libros
+     * @param libro
+     * @return true
+     */
+    public  agregarLibro() {
+        
+    }
+
+    /**
+     * elimina un libro de la lista de libros
+     * @param libro
+     * @return true
+     */
+
+
+    public boolean eliminarLibro() {
+        
+    }
+
+   /**
+    *  busca un libro en la lista de libros (listaLibros) utilizando el ISBN proporcionado.
+
+        Parámetro: Recibe un String llamado isbn que representa el ISBN del libro que se desea buscar.
+        Retorno: Devuelve el objeto Libro que coincide con el ISBN proporcionado. 
+        Si no se encuentra ningún libro con ese ISBN, devuelve null.
+    */
+
+    public  buscarLibro(){
+        
+        
+    }
+
+    /**
+     *  devuelve la lista de libros (listaLibros) que contiene todos los libros de la aplicación.
+     * @return Devuelve una lista (List<Libro>) que contiene todos los libros.
+     */
+
+    public obtenerListaLibros() {
        
-        return true;
     }
 
-    public boolean eliminarLibro(Libro libro) {
-        return listaLibros.remove(libro);
+    /**
+     * elimina el último libro de la lista de libros (listaLibros) y lo agrega a la pila de libros eliminados (pilaLibrosEliminados), siempre y cuando el libro no esté prestado.
+
+       Retorno: Devuelve el objeto Libro que fue eliminado. 
+       Si la lista de libros está vacía o el libro está prestado, devuelve null.  
+       
+       Descripción paso a paso:
+        Verifica si la lista de libros está vacía:
+
+        Si listaLibros está vacía, devuelve null.
+        Obtiene el último libro de la lista:
+
+        Si la lista no está vacía, obtiene el último libro de la lista (libroEliminado).
+        Verifica si el libro está prestado:
+
+        Si el libro está prestado (es decir, está en el mapa prestamos), imprime un mensaje indicando que el libro no puede ser eliminado y devuelve null.
+        Elimina el libro de la lista y lo agrega a la pila de libros eliminados:
+
+        Si el libro no está prestado, lo elimina de la lista de libros (listaLibros) y lo agrega a la pila de libros eliminados (pilaLibrosEliminados).
+        Devuelve el libro eliminado.
+     */
+
+
+    public  eliminarUltimoLibro() {
+        
     }
-
-    public Libro buscarLibro(String isbn){
-        for (Libro libro : listaLibros) {
-            if (libro.getIsbn().equals(isbn)) {
-                return libro;
-            }
-        }
-        return null; // Si no se encuentra el libro, devuelve null
-
-    }
-
-    public List<Libro> obtenerListaLibros() {
-        return listaLibros;
-    }
-
-    public Libro eliminarUltimoLibro() {
-        if (listaLibros.isEmpty()) {
-            return null;
-        } else {
-            // Obtener el último libro de la lista de libros
-            Libro libroEliminado = listaLibros.get(listaLibros.size() - 1);
-            
-            // Verificar si el libro está prestado
-            if (prestamos.containsKey(libroEliminado)) {
-                System.out.println("El libro no puede ser eliminado porque está prestado a: " + prestamos.get(libroEliminado).getNombre());
-                return null;
-            } else {
-                // Eliminar el último libro de la lista de libros
-                listaLibros.remove(listaLibros.size() - 1);
-                
-                // Agregar el libro eliminado a la pila de libros eliminados
-                pilaLibrosEliminados.push(libroEliminado);
-                return libroEliminado;
-            }
-        }
-    }
-
+    //  AQUI ME QUEDE
     public Libro deshacerEliminarLibro() {
         if (pilaLibrosEliminados.isEmpty()) {
             return null;
