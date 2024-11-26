@@ -104,81 +104,118 @@ public class ServicioDatos {
     public  eliminarUltimoLibro() {
         
     }
-    //  AQUI ME QUEDE
-    public Libro deshacerEliminarLibro() {
-        if (pilaLibrosEliminados.isEmpty()) {
-            return null;
-        } else {
-            // Restaurar el último libro eliminado
-            Libro libroRestaurado = pilaLibrosEliminados.pop();
-            listaLibros.add(libroRestaurado);
-            return libroRestaurado;
-        }
+    /*
+     * Este método deshacerEliminarLibro en la clase ServicioDatos deshace la eliminación del último libro que fue eliminado y almacenado en la pila de libros eliminados (pilaLibrosEliminados).
+
+        Retorno: Devuelve el objeto Libro que fue restaurado. Si la pila de libros eliminados está vacía, devuelve null.
+        Descripción paso a paso:
+        Verifica si la pila de libros eliminados está vacía:
+
+        Si pilaLibrosEliminados está vacía, devuelve null.
+        Restaura el último libro eliminado:
+
+        Si la pila no está vacía, extrae (pop) el último libro de la pila (libroRestaurado).
+        Agrega el libro restaurado a la lista de libros (listaLibros).
+        Devuelve el libro restaurado.
+     */
+    public  deshacerEliminarLibro() {
+        
     }
 
 
-    // Métodos para la lista de libros disponibles
-    public boolean agregarLibroDisponibles(Libro libro) {
-        listaLibrosDisponibles.add(libro);
-        return true;
+    /*
+     *  agrega un libro a la lista de libros disponibles 
+     */
+    public boolean agregarLibroDisponibles() {
+        
     }
 
-    public boolean eliminarLibroDisponible(Libro libro) {
-        return listaLibrosDisponibles.remove(libro);
+    /*
+     *  elimina un libro de la lista de libros disponibles
+     */
+
+    public boolean eliminarLibroDisponible() {
+        ;
     }
 
-    public ArrayList<Libro> obtenerListaLibrosDisponibles() {
-        return listaLibrosDisponibles;
+    /*
+     * regresa la lista de libros disponibles
+     */
+
+    public  obtenerListaLibrosDisponibles() {
+        
     }
 
-    // Métodos para la cola de libros
-    public boolean agregarLibroCola(Libro libro) {
-        colaLibros.add(libro);
-        return true;
+    /*
+     *  agrega un libro a la cola de libros reservados
+     */
+
+    public boolean agregarLibroCola( ) {
+
     }
 
+    /*
+     * elimina un libro de la cola de libros reservados
+     */
     public Libro eliminarLibroCola() {
         return colaLibros.poll();
     }
 
-    public Queue<Libro> obtenerColaLibros() {
-        return colaLibros;
+    /*
+     * devuelve la cola de libros que se utiliza
+     * para gestionar la reserva de libros
+     */
+    public  obtenerColaLibros() {
+        
     }
 
     // Métodos para la pila de libros eliminados
-    public boolean agregarLibroPila(Libro libro) {
-        pilaLibrosEliminados.push(libro);
-        return true;
+    /*
+     * agrega un libro a la pila de libros eliminados
+     */
+    public boolean agregarLibroPila() {
+        
     }
 
-    public Libro eliminarLibroPila() {
-        if (!pilaLibrosEliminados.isEmpty()) {
-            return pilaLibrosEliminados.pop();
-        }
-        return null;
+    /*
+     * elimina y devuelve el último libro de la pila 
+     * de libros eliminados, si no hay regresa null
+     */
+
+    public  eliminarLibroPila() {
+        
     }
+
+    /*
+     * devuelve una pila que contiene los libros eliminados
+     */
 
     public Stack<Libro> obtenerPilaLibrosEliminados() {
         return pilaLibrosEliminados;
     }
 
     // Métodos para los proveedores
-    public Proveedor agregarProveedor(Proveedor proveedor) {
-        if (!proveedores.containsKey(proveedor.getIdProveedor())) {
-           
-            proveedores.put(proveedor.getIdProveedor(), proveedor);
-            return proveedor;
-        } else {
-            return null;
-        }
+    /*
+     * agrega un proveedor a la lista de proveedores
+     * primero verifica que el ID del proveedor no exista
+     * depues lo agrega al mapa y devuelve el proveedor agregado
+     * si ya existe, regresa null
+     */
+    public  agregarProveedor(Proveedor proveedor) {
+        
     }
-
+    /*
+     * elimina un proveedor del mapa de proveedores
+     */
     public boolean eliminarProveedor(String idProveedor) {
-        return proveedores.remove(idProveedor) != null;
+        
     }
-
-    public Proveedor buscarProveedor(String idProveedor) {
-        return proveedores.get(idProveedor);
+    /*
+     * busca por id a una provedor en el mapa d proveedores
+     * y si existe lo regresa, si no regresa null
+     */
+    public buscarProveedor() {
+        ;
     }
 
     public HashMap<String, Proveedor> obtenerProveedores() {
@@ -186,83 +223,89 @@ public class ServicioDatos {
     }
 
     // Métodos para los usuarios
-    public Usuario agregarUsuario(Usuario usuario) {
-        if (buscarUsuario(usuario.getIdUsuario()) != null) {
-            
-            return null;
-        } else {
-            usuarios.add(usuario);
-            return usuario;
-        }
+    /*
+     * agrega un usuario al conjunto de usuarios primero verifica
+     * que no existe otro id de usuario
+     */
+    public  agregarUsuario() {
+        
     }
 
-    public boolean eliminarUsuario(int idUsuario) {
-        Usuario usuario = buscarUsuario(idUsuario);
-        if (usuario != null) {
-            return usuarios.remove(usuario);
-        } else {
-           
-            return false;
-        }
+    /*
+     * elimina a un usuario del conjunto de usuarios
+     */
+
+    public  eliminarUsuario() {
+        
     }
 
-    public Usuario buscarUsuario(int idUsuario) {
-        for (Usuario usuario : usuarios) {
-            if (usuario.getIdUsuario() == idUsuario) {
-                return usuario;
-            }
-        }
-        return null;
+    /*
+     * busca un usuario en el conjunto de usuario por id
+     * si no encuentra regresa el usurio sino nulo
+     */
+
+    public buscarUsuario() {
+        
+        
     }
 
-    public boolean actualizarUsuario(int id, String nombre, String direccion, String telefono) {
-        Usuario usuario = buscarUsuario(id);
-        if (usuario != null) {
-            usuario.setNombre(nombre);
-            usuario.setDireccion(direccion);
-            usuario.setTelefono(telefono);
-            return true;
-        } else {
-            return false;
-        }
+    /*
+     * actualiza la informacion de un usuario existente en el conjunto de usuarios
+     */
+
+    public  actualizarUsuario() {
+        
     }
 
-    public TreeSet<Usuario> obtenerUsuarios() {
-        return usuarios;
+    /*
+     * devuelde el conjunto de usuarios que 
+     * contiene todas las instancias de la clase Usuario
+     */
+    public  obtenerUsuarios() {
+       
     }
 
     // Métodos para los préstamos
+    /*
+     * gestiona el prestamos de un libro a un usuario
+     * comprueba si el libro esta en la lista de libros disponibles
+     * y además que el libro no la coleccion prestamos no contenga al libro
+     * si el libro esta disponible y no esta prestado, se elimina el libro de la lista de disponibles
+     * devuelve true para indicar que el prestamo fue exitoso 
+     * si el libro no esta disponible o esta prestado devuelve false
+     */
     public boolean prestarLibro(Usuario usuario,Libro libro) {
-        //prestamos.put(libro, usuario);
-        if (listaLibrosDisponibles.contains(libro) && !prestamos.containsKey(libro)) {
-            listaLibrosDisponibles.remove(libro);
-            prestamos.put(libro, usuario);
-            //System.out.println("Libro prestado a: " + usuario.getNombre());
-            return true;
-        } else {
-            //System.out.println("El libro no está disponible o ya está prestado.");
-            return false;
-        }
+        
     }
 
-    public boolean devolverLibro(Usuario usuario, Libro libro) {
-        //return prestamos.remove(libro) != null;
-        if (prestamos.containsKey(libro) && prestamos.get(libro).equals(usuario)) {
-            listaLibrosDisponibles.add(libro);
-            prestamos.remove(libro);
-            //System.out.println("Libro devuelto por: " + usuario.getNombre());
-            return true;
-        } else {
-            //System.out.println("El libro no está prestado a este usuario.");
-            return false;
-        }
+    /*
+     * gestiona la devolución de un libro prestado por un usuario.
+     * comprueba si el mapa de prestamos contiene el libro y si el valor
+     * asociado (el usuario que tiene el libro prestado) es igual
+     * al usuario que esta devolviendo el libro
+     * Si el libro esta prestado al usuario lo regresa a la lista de libros disponibles,
+     *  elimina el libro del mapa de prestamos y devuelve true para indicar que fue exitoso
+     *  devuelve false para indicar que la devolucion no se pudo realizar
+     *  porque el libro no estaba prestdo a ese usuario
+     */
+
+    public  devolverLibro(Usuario usuario, Libro libro) {
+        
     }
 
+    /*
+     * busca y devuelve el usuario que tiene prestado un libro específico.
+     */
     public Usuario buscarPrestamo(Libro libro) {
-        return prestamos.get(libro);
+        
     }
 
-    public HashMap<Libro, Usuario> obtenerPrestamos() {
-        return prestamos;
+    /*
+     * devuelve el mapa de préstamos (prestamos), 
+     * que asocia libros con los usuarios que los tienen prestados.
+     */
+
+    public  obtenerPrestamos() {
+        
     }
 }
